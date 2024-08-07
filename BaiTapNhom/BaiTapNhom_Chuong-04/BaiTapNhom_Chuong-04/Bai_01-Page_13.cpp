@@ -26,6 +26,14 @@ double tinh_S2(int n) {
 	return tong;
 }
 
+// Hàm tính S(n) = 1*2 + 2*3 + 3*4 + ... + n*(n+1)
+int tinh_S3(int n) {
+	int tong = 0;
+	for (int i = 1; i <= n; i++) {
+		tong += i * (i + 1);
+	}
+	return tong;
+}
 
 int main() {
 	int lua_chon, n;
@@ -52,6 +60,14 @@ int main() {
 			scanf("%d", &n);
 			printf("S(%d) = %.6lf\n", n, tinh_S2(n));
 			break;
+		case 3:
+			printf("Nhap gia tri n: ");
+			scanf("%d", &n);
+			printf("S(%d) = %d\n", n, tinh_S3(n));
+			break;
+		case 4:
+			printf("Thoat chuong trinh.\n");
+			return 0;
 		default:
 			printf("Lua chon khong hop le. Vui long chon lai.\n");
 			break;
