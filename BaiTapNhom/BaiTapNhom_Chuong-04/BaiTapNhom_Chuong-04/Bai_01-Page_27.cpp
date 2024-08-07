@@ -154,6 +154,20 @@ double factorial_series_non_recursive(int n) {
 	return sum;
 }
 
+// Cau 11
+double complex_series_recursive(int n) {
+	if (n == 1)
+		return 1.5 / (2 + sqrt((double)3));
+	return (n + sqrt_recursive(n - 1)) / ((n + 1) * (n + sqrt((double)n + 2))) + complex_series_recursive(n - 1);
+}
+
+double complex_series_non_recursive(int n) {
+	double sum = 0;
+	for (int i = 1; i <= n; i++)
+		sum += (i + sqrt_non_recursive(i - 1)) / ((i + 1) * (i + sqrt((double)i + 2)));
+	return sum;
+}
+
 void menu() {
 	int choice, n;
 	do {
@@ -219,6 +233,11 @@ void menu() {
 			printf("Tong de quy: %f\n", factorial_series_recursive(n));
 			printf("Tong khong de quy: %f\n", factorial_series_non_recursive(n));
 			break;
+		case 11:
+			printf("Tong de quy: %f\n", complex_series_recursive(n));
+			printf("Tong khong de quy: %f\n", complex_series_non_recursive(n));
+			break;
+
 		default:
 			printf("Lua chon khong hop le!\n");
 			break;
