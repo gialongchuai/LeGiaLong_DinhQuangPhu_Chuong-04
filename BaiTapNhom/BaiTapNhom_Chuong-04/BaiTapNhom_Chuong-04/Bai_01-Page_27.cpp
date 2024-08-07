@@ -20,7 +20,19 @@ int sum_non_recursive(int n) {
 	return sum;
 }
 
+// Cau 2
+double sqrt_recursive(int n) {
+	if (n == 1)
+		return sqrt((double)2);
+	return sqrt(2 + sqrt_recursive(n - 1));
+}
 
+double sqrt_non_recursive(int n) {
+	double result = sqrt((double)2);
+	for (int i = 1; i < n; i++)
+		result = sqrt(2 + result);
+	return result;
+}
 
 void menu() {
 	int choice, n;
@@ -51,7 +63,10 @@ void menu() {
 			printf("Tong de quy: %d\n", sum_recursive(n));
 			printf("Tong khong de quy: %d\n", sum_non_recursive(n));
 			break;
-		
+		case 2:
+			printf("Tong de quy: %f\n", sqrt_recursive(n));
+			printf("Tong khong de quy: %f\n", sqrt_non_recursive(n));
+			break;
 		default:
 			printf("Lua chon khong hop le!\n");
 			break;
