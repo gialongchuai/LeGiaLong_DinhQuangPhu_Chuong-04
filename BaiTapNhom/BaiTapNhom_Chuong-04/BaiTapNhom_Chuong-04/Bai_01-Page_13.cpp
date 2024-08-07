@@ -23,7 +23,7 @@ double tinh_S2_dequy(int n) {
 	return 1.0 / n + tinh_S2_dequy(n - 1);
 }
 
-// Hàm đệ quy tính S(n) = 1*2 + 2*3 + 3*4 + ... + n*(n+1)
+// Hàm đệ quy tính S(n) = 1*2 + 2*3 + 3*4 + ... + n*(n+1) 
 int tinh_S3_dequy(int n) {
 	if (n == 1) {
 		return 1 * 2;
