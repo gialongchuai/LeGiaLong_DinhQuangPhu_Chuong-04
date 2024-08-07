@@ -34,6 +34,21 @@ double sqrt_non_recursive(int n) {
 	return result;
 }
 
+// Cau 3
+double harmonic_recursive(int n) {
+	if (n == 1)
+		return 1.0 / 2;
+	return (double)n / (n + 1) + harmonic_recursive(n - 1);
+}
+
+double harmonic_non_recursive(int n) {
+	double sum = 0;
+	for (int i = 1; i <= n; i++)
+		sum += (double)i / (i + 1);
+	return sum;
+}
+
+
 void menu() {
 	int choice, n;
 	do {
@@ -66,6 +81,10 @@ void menu() {
 		case 2:
 			printf("Tong de quy: %f\n", sqrt_recursive(n));
 			printf("Tong khong de quy: %f\n", sqrt_non_recursive(n));
+			break;
+		case 3:
+			printf("Tong de quy: %f\n", harmonic_recursive(n));
+			printf("Tong khong de quy: %f\n", harmonic_non_recursive(n));
 			break;
 		default:
 			printf("Lua chon khong hop le!\n");
