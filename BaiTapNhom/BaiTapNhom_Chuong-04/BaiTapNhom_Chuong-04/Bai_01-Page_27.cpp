@@ -117,6 +117,23 @@ int nested_sum_non_recursive(int n) {
 	return sum;
 }
 
+// Cau 9
+double alternating_series_recursive(int n) {
+	if (n == 1)
+		return -1.0 / 2;
+	int sign = (n % 2 == 0) ? 1 : -1;
+	return sign * (double)((n * (n + 1)) / ((n + 1) * (n + 1) - 1)) + alternating_series_recursive(n - 1);
+}
+
+double alternating_series_non_recursive(int n) {
+	double sum = 0;
+	for (int i = 1; i <= n; i++) {
+		int sign = (i % 2 == 0) ? 1 : -1;
+		sum += sign * (double)((i * (i + 1)) / ((i + 1) * (i + 1) - 1));
+	}
+	return sum;
+}
+
 void menu() {
 	int choice, n;
 	do {
@@ -173,6 +190,10 @@ void menu() {
 		case 8:
 			printf("Tong de quy: %d\n", nested_sum_recursive(n));
 			printf("Tong khong de quy: %d\n", nested_sum_non_recursive(n));
+			break;
+		case 9:
+			printf("Tong de quy: %f\n", alternating_series_recursive(n));
+			printf("Tong khong de quy: %f\n", alternating_series_non_recursive(n));
 			break;
 		default:
 			printf("Lua chon khong hop le!\n");
