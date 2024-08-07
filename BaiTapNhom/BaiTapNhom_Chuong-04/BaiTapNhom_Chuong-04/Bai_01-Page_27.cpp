@@ -1,0 +1,67 @@
+/*
+	
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+// Cau 1
+int sum_recursive(int n) {
+	if (n == 1)
+		return 1;
+	return n + sum_recursive(n - 1);
+}
+
+int sum_non_recursive(int n) {
+	int sum = 0;
+	for (int i = 1; i <= n; i++)
+		sum += i;
+	return sum;
+}
+
+
+
+void menu() {
+	int choice, n;
+	do {
+		printf("Chon bai toan:\n");
+		printf("1. Tong 1 + 2 + ... + n\n");
+		printf("2. Can bac 2 + Can bac 2(2 + Can bac 2) + ...\n");
+		printf("3. Tong 1/2 + 2/3 + ... + n/(n+1)\n");
+		printf("4. Tong 1 + 1/3 + 1/5 + ... + 1/(2n+1)\n");
+		printf("5. Tong 1.2 + 2.3 + ... + n(n+1)\n");
+		printf("6. Tong 1/(1.2.3) + ... + 1/(n(n+1)(n+2))\n");
+		printf("7. Tong 1^2 + 2^2 + ... + n^2\n");
+		printf("8. Tong (1) + (1+2) + (1+2+3) + ... + (1+2+...+n)\n");
+		printf("9. Tong -1/2 + 1/3 + -1/4 + ...\n");
+		printf("10. Tong (1.2!) / (2 + sqrt(3)) + ...\n");
+		printf("11. Tong (1 + sqrt(2)) / (2 + sqrt(3)) + ...\n");
+		printf("0. Thoat\n");
+		printf("Lua chon cua ban: ");
+		scanf("%d", &choice);
+
+		if (choice == 0) break;
+
+		printf("Nhap n: ");
+		scanf("%d", &n);
+
+		switch (choice) {
+		case 1:
+			printf("Tong de quy: %d\n", sum_recursive(n));
+			printf("Tong khong de quy: %d\n", sum_non_recursive(n));
+			break;
+		
+		default:
+			printf("Lua chon khong hop le!\n");
+			break;
+		}
+		printf("\n");
+	} while (choice != 0);
+}
+
+int main() {
+	menu();
+	system("pause");
+	return 0;
+}
