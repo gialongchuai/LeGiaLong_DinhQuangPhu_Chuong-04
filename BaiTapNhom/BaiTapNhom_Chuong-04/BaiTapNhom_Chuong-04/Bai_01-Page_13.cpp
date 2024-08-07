@@ -7,32 +7,28 @@
 
 #include <stdio.h>
 
-// Hàm tính S(n) = 1 + 2 + 3 + ... + n
-int tinh_S1(int n) {
-	int tong = 0;
-	for (int i = 1; i <= n; i++) {
-		tong += i;
+// Hàm đệ quy tính S(n) = 1 + 2 + 3 + ... + n
+int tinh_S1_dequy(int n) {
+	if (n == 1) {
+		return 1;
 	}
-	return tong;
+	return n + tinh_S1_dequy(n - 1);
 }
 
-
-// Hàm tính S(n) = 1 + 1/2 + 1/3 + ... + 1/n
-double tinh_S2(int n) {
-	double tong = 0.0;
-	for (int i = 1; i <= n; i++) {
-		tong += 1.0 / i;
+// Hàm đệ quy tính S(n) = 1 + 1/2 + 1/3 + ... + 1/n
+double tinh_S2_dequy(int n) {
+	if (n == 1) {
+		return 1.0;
 	}
-	return tong;
+	return 1.0 / n + tinh_S2_dequy(n - 1);
 }
 
-// Hàm tính S(n) = 1*2 + 2*3 + 3*4 + ... + n*(n+1)
-int tinh_S3(int n) {
-	int tong = 0;
-	for (int i = 1; i <= n; i++) {
-		tong += i * (i + 1);
+// Hàm đệ quy tính S(n) = 1*2 + 2*3 + 3*4 + ... + n*(n+1)
+int tinh_S3_dequy(int n) {
+	if (n == 1) {
+		return 1 * 2;
 	}
-	return tong;
+	return n * (n + 1) + tinh_S3_dequy(n - 1);
 }
 
 int main() {
@@ -53,17 +49,17 @@ int main() {
 		case 1:
 			printf("Nhap gia tri n: ");
 			scanf("%d", &n);
-			printf("S(%d) = %d\n", n, tinh_S1(n));
+			printf("S(%d) = %d\n", n, tinh_S1_dequy(n));
 			break;
 		case 2:
 			printf("Nhap gia tri n: ");
 			scanf("%d", &n);
-			printf("S(%d) = %.6lf\n", n, tinh_S2(n));
+			printf("S(%d) = %.6lf\n", n, tinh_S2_dequy(n));
 			break;
 		case 3:
 			printf("Nhap gia tri n: ");
 			scanf("%d", &n);
-			printf("S(%d) = %d\n", n, tinh_S3(n));
+			printf("S(%d) = %d\n", n, tinh_S3_dequy(n));
 			break;
 		case 4:
 			printf("Thoat chuong trinh.\n");
