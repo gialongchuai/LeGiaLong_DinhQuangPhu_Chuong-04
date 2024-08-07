@@ -89,6 +89,20 @@ double fraction_series_non_recursive(int n) {
 	return sum;
 }
 
+// Cau 7
+int square_sum_recursive(int n) {
+	if (n == 1)
+		return 1;
+	return n * n + square_sum_recursive(n - 1);
+}
+
+int square_sum_non_recursive(int n) {
+	int sum = 0;
+	for (int i = 1; i <= n; i++)
+		sum += i * i;
+	return sum;
+}
+
 void menu() {
 	int choice, n;
 	do {
@@ -137,6 +151,10 @@ void menu() {
 		case 6:
 			printf("Tong de quy: %f\n", fraction_series_recursive(n));
 			printf("Tong khong de quy: %f\n", fraction_series_non_recursive(n));
+			break;
+		case 7:
+			printf("Tong de quy: %d\n", square_sum_recursive(n));
+			printf("Tong khong de quy: %d\n", square_sum_non_recursive(n));
 			break;
 		default:
 			printf("Lua chon khong hop le!\n");
