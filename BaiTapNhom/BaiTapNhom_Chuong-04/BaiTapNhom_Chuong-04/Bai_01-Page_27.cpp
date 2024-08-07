@@ -103,6 +103,20 @@ int square_sum_non_recursive(int n) {
 	return sum;
 }
 
+// Cau 8
+int nested_sum_recursive(int n) {
+	if (n == 1)
+		return 1;
+	return (n * (n + 1)) / 2 + nested_sum_recursive(n - 1);
+}
+
+int nested_sum_non_recursive(int n) {
+	int sum = 0;
+	for (int i = 1; i <= n; i++)
+		sum += (i * (i + 1)) / 2;
+	return sum;
+}
+
 void menu() {
 	int choice, n;
 	do {
@@ -155,6 +169,10 @@ void menu() {
 		case 7:
 			printf("Tong de quy: %d\n", square_sum_recursive(n));
 			printf("Tong khong de quy: %d\n", square_sum_non_recursive(n));
+			break;
+		case 8:
+			printf("Tong de quy: %d\n", nested_sum_recursive(n));
+			printf("Tong khong de quy: %d\n", nested_sum_non_recursive(n));
 			break;
 		default:
 			printf("Lua chon khong hop le!\n");
